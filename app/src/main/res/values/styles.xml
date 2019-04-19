@@ -4,6 +4,11 @@
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
         <item name="colorAccent">@color/color_accent</item>
+
+        <item name="android:windowBackground">@color/window_background_gray</item>
+        <item name="android:textColorPrimary">@color/primary_text_color</item>
+        <item name="android:textColorSecondary">@color/secondary_text_color</item>
+        <item name="android:textColorHint">@color/hint_text_color</item>
     </style>
 
 </resources>

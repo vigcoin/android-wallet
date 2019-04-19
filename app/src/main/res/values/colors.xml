@@ -15,5 +15,5 @@
     <!--主体背景色-->
     <color name="window_background">#ffffffff</color>
     <!--主体背景色-灰色-->
-    <color name="window_background_gray">#ff000000</color>
+    <color name="window_background_gray">#ffefefef</color>
 </resources>
