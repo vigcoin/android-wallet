@@ -1,5 +1,7 @@
 package com.jtech.vigcoin.common;
 
+import android.annotation.SuppressLint;
+
 /**
  * 全局参数
  */
@@ -8,6 +10,9 @@ public class Constants {
     public final static boolean DEBUG = true;
     //本地缓存路径
     public final static String FILE_CACHE_PATH = "VigCoinCache";
+    //sd卡根目录
+    @SuppressLint("SdCardPath")
+    public final static String SD_CACHE_PATH = "/sdcard/";
     //https
     public final static String HTTPS = "https://";
     //http
