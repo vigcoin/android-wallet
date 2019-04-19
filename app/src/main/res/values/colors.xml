@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="color_primary">#008577</color>
+    <color name="color_primary_dark">#00574B</color>
+    <color name="color_accent">#D81B60</color>
+
+    <!--主字体色值-->
+    <color name="primary_text_color">#ff000000</color>
+    <!--次级字体色值-->
+    <color name="secondary_text_color">#ff000000</color>
+    <!--提示文本色值-->
+    <color name="hint_text_color">#ff000000</color>
+    <!--分割线色值-->
+    <color name="divider_color">#ff000000</color>
+    <!--主体背景色-->
+    <color name="window_background">#ffffffff</color>
+    <!--主体背景色-灰色-->
+    <color name="window_background_gray">#ff000000</color>
 </resources>
