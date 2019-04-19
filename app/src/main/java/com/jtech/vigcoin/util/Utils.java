@@ -1,17 +1,23 @@
 package com.jtech.vigcoin.util;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Environment;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import androidx.annotation.NonNull;
+
 import com.jtech.vigcoin.common.Constants;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -209,5 +215,30 @@ public class Utils {
             }
         }
         return new File(Constants.SD_CACHE_PATH);
+    }
+
+    /**
+     * 日期格式化
+     *
+     * @param pattern 格式
+     * @param date    时间戳
+     * @return 格式化后的结果
+     */
+    public static String formatDate(@NonNull String pattern, long date) {
+        return formatDate(pattern, new Date(date));
+    }
+
+    /**
+     * 日期格式化
+     *
+     * @param pattern 格式
+     * @param date    日期
+     * @return 格式化后的结果
+     */
+    @SuppressLint("SimpleDateFormat")
+    public static String formatDate(@NonNull String pattern, @NonNull Date date) {
+        if (TextUtils.isEmpty(pattern)) return "";
+        return new SimpleDateFormat(pattern)
+                .format(date);
     }
 }
