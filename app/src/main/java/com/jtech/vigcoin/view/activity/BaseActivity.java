@@ -92,12 +92,12 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     public void showLoading(String text, boolean cancelable) {
         if (null == loadingDialog) {
-            this.loadingDialog = new LoadingDialog(this);
+            loadingDialog = new LoadingDialog(this);
         }
-        this.loadingDialog
+        loadingDialog
                 .setLoadingText(text)
                 .setCancelable(cancelable);
-        this.loadingDialog.show();
+        loadingDialog.show();
     }
 
     /**
@@ -107,7 +107,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     public void updateLoadingText(String text) {
         if (null != loadingDialog && loadingDialog.isShowing()) {
-            this.loadingDialog.setLoadingText(text);
+            loadingDialog.setLoadingText(text);
         }
     }
 

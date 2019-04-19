@@ -99,13 +99,13 @@ public abstract class BaseFragment extends Fragment {
      */
     public void showLoading(String text, boolean cancelable) {
         if (null == loadingDialog) {
-            this.loadingDialog = new LoadingDialog(
+            loadingDialog = new LoadingDialog(
                     Objects.requireNonNull(getActivity()));
         }
-        this.loadingDialog
+        loadingDialog
                 .setLoadingText(text)
                 .setCancelable(cancelable);
-        this.loadingDialog.show();
+        loadingDialog.show();
     }
 
     /**
@@ -115,7 +115,7 @@ public abstract class BaseFragment extends Fragment {
      */
     public void updateLoadingText(String text) {
         if (null != loadingDialog && loadingDialog.isShowing()) {
-            this.loadingDialog.setLoadingText(text);
+            loadingDialog.setLoadingText(text);
         }
     }
 
