@@ -4,9 +4,11 @@ import android.os.Bundle;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.jtech.vigcoin.util.Bus;
+import com.jtech.vigcoin.view.weight.dialog.LoadingDialog;
 
 import butterknife.ButterKnife;
 
@@ -16,6 +18,7 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseActivity extends AppCompatActivity {
     public static String TAG = BaseActivity.class.getSimpleName();
+    private LoadingDialog loadingDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,6 +72,43 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     public BaseActivity getActivity() {
         return this;
+    }
+
+    /**
+     * 展示loadingDialog
+     *
+     * @param resId      loadingTextResId
+     * @param cancelable 是否可取消
+     */
+    public void showLoading(@StringRes int resId, boolean cancelable) {
+        showLoading(getString(resId), cancelable);
+    }
+
+    /**
+     * 展示loadingDialog
+     *
+     * @param text       loadingText
+     * @param cancelable 是否可取消
+     */
+    public void showLoading(String text, boolean cancelable) {
+        if (null == loadingDialog) {
+            this.loadingDialog = new LoadingDialog(this);
+        }
+        this.loadingDialog
+                .setLoadingText(text)
+                .setCancelable(cancelable);
+        this.loadingDialog.show();
+    }
+
+    /**
+     * 更新loadingDialog文本
+     *
+     * @param text loadingText
+     */
+    public void updateLoadingText(String text) {
+        if (null != loadingDialog && loadingDialog.isShowing()) {
+            this.loadingDialog.setLoadingText(text);
+        }
     }
 
     @Override

@@ -6,9 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 
 import com.jtech.vigcoin.util.Bus;
+import com.jtech.vigcoin.view.weight.dialog.LoadingDialog;
+
+import java.util.Objects;
 
 import butterknife.ButterKnife;
 
@@ -18,6 +22,7 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseFragment extends Fragment {
     public static String TAG = BaseFragment.class.getSimpleName();
+    private LoadingDialog loadingDialog;
     private View contentView;
 
     @Nullable
@@ -75,6 +80,44 @@ public abstract class BaseFragment extends Fragment {
      * 请求数据
      */
     protected abstract void loadData();
+
+    /**
+     * 展示loadingDialog
+     *
+     * @param resId      loadingTextResId
+     * @param cancelable 是否可取消
+     */
+    public void showLoading(@StringRes int resId, boolean cancelable) {
+        showLoading(getString(resId), cancelable);
+    }
+
+    /**
+     * 展示loadingDialog
+     *
+     * @param text       loadingText
+     * @param cancelable 是否可取消
+     */
+    public void showLoading(String text, boolean cancelable) {
+        if (null == loadingDialog) {
+            this.loadingDialog = new LoadingDialog(
+                    Objects.requireNonNull(getActivity()));
+        }
+        this.loadingDialog
+                .setLoadingText(text)
+                .setCancelable(cancelable);
+        this.loadingDialog.show();
+    }
+
+    /**
+     * 更新loadingDialog文本
+     *
+     * @param text loadingText
+     */
+    public void updateLoadingText(String text) {
+        if (null != loadingDialog && loadingDialog.isShowing()) {
+            this.loadingDialog.setLoadingText(text);
+        }
+    }
 
     @Override
     public void onDestroy() {
