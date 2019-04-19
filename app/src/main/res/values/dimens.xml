@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <!--默认容器间距-->
+    <dimen name="default_horizontal_padding">14dp</dimen>
+    <dimen name="default_vertical_padding">8dp</dimen>
+    <dimen name="default_padding">14dp</dimen>
+    <!--默认文本字体size-->
+    <dimen name="title_text_size">18sp</dimen>
+    <dimen name="subtitle_text_size">16sp</dimen>
+    <dimen name="content_text_size">14sp</dimen>
+    <dimen name="small_text_size">12sp</dimen>
+    <!--分割线size-->
+    <dimen name="divider_size">1px</dimen>
+    <!--控件素材与内容间距-->
+    <dimen name="drawable_padding">6dp</dimen>
+</resources>
