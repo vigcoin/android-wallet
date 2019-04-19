@@ -3,6 +3,8 @@ package com.jtech.vigcoin.view.activity;
 import android.os.Bundle;
 
 import com.jtech.vigcoin.R;
+import com.jtech.vigcoin.manager.ActivityGoManager;
+import com.jtech.vigcoin.manager.PermissionManager;
 import com.jtech.vigcoin.mvp.contract.SplashContract;
 import com.jtech.vigcoin.mvp.presenter.SplashPresenter;
 
@@ -25,5 +27,12 @@ public class SplashActivity extends BaseActivity implements SplashContract.View 
 
     @Override
     protected void loadData() {
+        //检查应用必须权限
+        PermissionManager.checkMustPermission(getActivity(), allGranted -> {
+            if (allGranted) {
+                ActivityGoManager.goMain(getActivity());
+            }
+            // TODO: 2019/4/19 需要处理必须权限检查失败的业务
+        });
     }
 }
