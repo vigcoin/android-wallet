@@ -24,6 +24,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //material设计风格
+    implementation 'com.google.android.material:material:1.0.0'
     //androidX
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha04'
     //网络请求框架-retrofit2+rxJava+okHttp3
