@@ -14,8 +14,7 @@ public class PermissionManager extends BasePermissionManager {
      * 应用必须权限
      */
     private static String[] mustPermissions = {
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_EXTERNAL_STORAGE
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
 
     /**
